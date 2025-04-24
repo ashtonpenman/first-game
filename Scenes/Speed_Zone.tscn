@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ff6aqrlwnjdo"]
+
+[ext_resource type="Script" uid="uid://cvk1lxg5cbg1y" path="res://Scripts/Speed_Zone.gd" id="1_50lbi"]
+
+[node name="Speed_Zone" type="Area2D"]
+script = ExtResource("1_50lbi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
