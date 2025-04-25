@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcy2rk7hklqcr"]
+[gd_scene load_steps=19 format=3 uid="uid://bcy2rk7hklqcr"]
 
 [ext_resource type="PackedScene" uid="uid://r3inl6h1m42s" path="res://Scenes/coin.tscn" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://dlcdhyf7wjb71" path="res://Scenes/player.tscn" id="1_ebmjs"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://m41uyxv8o8ur" path="res://Scenes/killzone.tscn" id="5_wowpa"]
 [ext_resource type="PackedScene" uid="uid://x63cv51aipvo" path="res://Scenes/slimed.tscn" id="6_i6g32"]
 [ext_resource type="FontFile" uid="uid://bjaqxycsj5qa" path="res://Assets/fonts/PixelOperator8.ttf" id="8_h4fw4"]
+[ext_resource type="PackedScene" uid="uid://b54ia5blkii3e" path="res://Scenes/slow_zone.tscn" id="10_ldgsr"]
+[ext_resource type="PackedScene" uid="uid://ff6aqrlwnjdo" path="res://Scenes/Speed_Zone.tscn" id="11_o5yvi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrm1d"]
 texture = ExtResource("2_qxrlw")
@@ -368,3 +370,16 @@ offset_bottom = -36.0
 theme_override_fonts/font = ExtResource("8_h4fw4")
 theme_override_font_sizes/font_size = 8
 text = "Space to jump"
+
+[node name="slow_zone" parent="." instance=ExtResource("10_ldgsr")]
+position = Vector2(1, -1)
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="slow_zone"]
+polygon = PackedVector2Array(-516, -20, -577, -20, -577, -86, -594, -87, -593, -104, -678, -102, -678, -68, -611, -68, -611, 34, -511, 37)
+
+[node name="Speed_Zone" parent="." instance=ExtResource("11_o5yvi")]
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Speed_Zone"]
+polygon = PackedVector2Array(479, -335, 480, -297, 431, -295, 431, -335)
